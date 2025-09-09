@@ -1,0 +1,57 @@
+name: Update Arduino Package Index
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit_message:
+        description: "Commit message for the update"
+        required: false
+        default: "Update Arduino package index from latest commit"
+  push:
+    branches: [main]
+    paths:
+      - "arduino/**"
+      - "!arduino/package_fobe_index.json"
+  pull_request:
+    branches: [main]
+    paths:
+      - "arduino/**"
+      - "!arduino/package_fobe_index.json"
+
+jobs:
+  update-index:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq curl
+
+      - name: Make update script executable
+        run: chmod +x .github/scripts/merge_arduino_index.sh
+
+      - name: Run update script
+        run: .github/scripts/merge_arduino_index.sh
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          git diff --exit-code arduino/package_fobe_index.json || echo "changes=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push changes
+        if: steps.git-check.outputs.changes == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add arduino/package_fobe_index.json
+          git commit -m "${{ github.event.inputs.commit_message || 'Update arduino package index from latest commit' }}"
+          git push

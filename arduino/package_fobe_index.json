@@ -1,0 +1,14 @@
+{
+    "packages": [
+        {
+            "name": "fobe",
+            "maintainer": "FoBE Studio",
+            "websiteURL": "https://docs.fobestudio.com",
+            "help": {
+                "online": "https://docs.fobestudio.com"
+            },
+            "platforms": [],
+            "tools": []
+        }
+    ]
+}
