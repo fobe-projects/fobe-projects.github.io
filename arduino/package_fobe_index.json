@@ -15,8 +15,8 @@
           "category": "Contributed",
           "url": "https://github.com/fobe-projects/fobe-esp32-arduino/releases/download/3.3.0/fobe-esp32-arduino-3.3.0.zip",
           "archiveFileName": "fobe-esp32-arduino-3.3.0.zip",
-          "checksum": "SHA-256:eaa72a20916f2a184b28036956121abf80c795bea156965b7fe5f7e78a991ce6",
-          "size": "20675602",
+          "checksum": "SHA-256:f96b4af2fd2f8147e3bb8f0b9db3e350e4d0c9fc18a9f7675c7ba169d455ebb9",
+          "size": "20675604",
           "help": {
             "online": ""
           },
@@ -85,8 +85,8 @@
           "category": "Contributed",
           "url": "https://github.com/fobe-projects/fobe-nrf52-arduino/releases/download/1.7.0/fobe-nrf52-arduino-1.7.0.tar.bz2",
           "archiveFileName": "fobe-nrf52-arduino-1.7.0.tar.bz2",
-          "checksum": "SHA-256:53f02612b535e3b9fe648ae65a87611056216a065c062e7b67515b0ac7f33104",
-          "size": "17707523",
+          "checksum": "SHA-256:23fc1bb50782d9774865ad1adad3900a20a654010aff35389d3558925c88704e",
+          "size": "17708310",
           "boards": [
             {
               "name": "FoBE Quill nRF52840 Mesh"
